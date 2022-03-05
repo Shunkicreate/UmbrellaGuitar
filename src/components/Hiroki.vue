@@ -1,6 +1,7 @@
 <template>
 <div>
 this is Hiroki page
+<div>ひろきくんが作業しております</div>
 <div>{{counter}}</div>
 <div><button @click="counter++">increase</button></div>
 <div><button @click="counter--">decrease</button></div>
