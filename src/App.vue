@@ -8,6 +8,8 @@ import Hiroki from './components/Hiroki.vue'
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />aaaaaaa
   <Hiroki></Hiroki>
+  <GUCCI></GUCCI>
+  <Yukina></Yukina>
   <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
 </template>
 
