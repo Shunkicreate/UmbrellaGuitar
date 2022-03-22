@@ -6,6 +6,7 @@
 // import GUCCI from './components/GUCCI.vue'
 // import Yukina from './components/Yukina.vue'
 
+
 import Code from './components/Code.vue'
 
 </script>
@@ -16,7 +17,7 @@ import Code from './components/Code.vue'
   <Gucci></Gucci>
   <Yukina></Yukina>
   <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" /> -->
-  <Code></Code>
+  <Code></Code>  
 </template>
 
 <style>
