@@ -6,7 +6,6 @@
 // import GUCCI from './components/GUCCI.vue'
 // import Yukina from './components/Yukina.vue'
 
-
 import Code from './components/Code.vue'
 
 </script>
