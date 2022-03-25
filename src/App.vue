@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script>
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
 // import HelloWorld from './components/HelloWorld.vue'
@@ -7,16 +7,26 @@
 // import Yukina from './components/Yukina.vue'
 
 import Code from './components/Code.vue'
+import Body from './components/Body.vue'
 
+export default {
+  components: {
+    Code,
+    Body
+  }
+}
 </script>
 
 <template>
   <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
   <!-- <Hiroki></Hiroki>
   <Gucci></Gucci>
-  <Yukina></Yukina>
+  
   <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" /> -->
+  <div>
   <Code></Code>  
+  <Body></Body>
+  </div>
 </template>
 
 <style>

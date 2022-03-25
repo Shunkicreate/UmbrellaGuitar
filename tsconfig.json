@@ -1,13 +1,5 @@
 {
   "compilerOptions": {
-    "paths": {
-      "@/*": [
-        "./src/*"
-      ],
-      "vuedraggable": [
-        "./src/types/vuedraggable"
-      ]
-    },
     "target": "esnext",
     "useDefineForClassFields": true,
     "module": "esnext",
