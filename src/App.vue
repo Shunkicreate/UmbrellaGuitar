@@ -8,7 +8,7 @@
 
 import Code from './components/Code.vue'
 import Body from './components/Body.vue'
-
+//hotto hitoiki
 export default {
   components: {
     Code,
