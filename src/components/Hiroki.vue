@@ -1,18 +1,26 @@
 <template>
-<div>
-this is Hiroki page
-<div>ひろきくんが作業しております</div>
-<div>{{counter}}</div>
-<div><button @click="counter++">increase</button></div>
-<div><button @click="counter--">decrease</button></div>
-</div>
+	<div class = "hiroki">
+	<div>It's me. This is Hiroki.</div>
+	<canvas id = "can1" height="30"></canvas>
+	</div>
 </template>
 
-<script setup lang="ts">
-import { ref } from 'vue'
+<script setup lang="ts">import { withCtx } from 'vue';
 
-const counter = ref(0)
+	var canvas = document.getElementById("can1")
 
-
+	var x = 20;
+	var y = 20;
+	var speed = 1;
 
 </script>
+
+<style>
+	.hiroki{
+		border: solid 1px pink;
+	}
+	canvas{
+		border:solid 1px black;
+		width: 50%;
+	}
+</style>

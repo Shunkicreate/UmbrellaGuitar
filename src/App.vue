@@ -4,7 +4,7 @@
 import HelloWorld from './components/HelloWorld.vue'
 import Hiroki from './components/Hiroki.vue'
 import GUCCI from './components/GUCCI.vue'
-import Yukina from './components/Yukine.vue'
+import Yukina from './components/Yukina.vue'
 </script>
 
 <template>
