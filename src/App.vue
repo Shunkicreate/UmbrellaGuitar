@@ -1,8 +1,8 @@
 <script setup lang="ts">
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-import HelloWorld from './components/HelloWorld.vue'
-import Hiroki from './components/Hiroki.vue'
+// import HelloWorld from './components/HelloWorld.vue'
+// import Hiroki from './components/Hiroki.vue'
 import GUCCI from './components/GUCCI.vue'
 import Yukina from './components/Yukina.vue'
 </script>
