@@ -2,13 +2,13 @@
 	<!-- <div id="app"> -->
 	<div class="hiroki">
 		<div>It's me. This is Hiroki.</div>
-		<button>スタート</button>
+		<button @click="draw()">スタート</button>
 		<canvas id="can1" width="600" height="50"></canvas>
 	</div>
 	<!-- </div> -->
 </template>
 
-<script setup lang="ts">
+<script lang="ts">
 import { createApp, defineComponent, VueElement, withCtx } from 'vue';
 // import AppVue from '../App.vue';
 
@@ -52,6 +52,9 @@ export default defineComponent({
 			}
 
 			xstart -= speed;
+		}
+		return{
+			draw
 		}
 	}
 });
