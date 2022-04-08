@@ -1,39 +1,91 @@
 <template>
-  <div class="flex m-10">
-    <draggable class="dragArea list-group w-full" :list="list" @change="log">
-      <div
-        class="list-group-item bg-gray-300 m-1 p-3 rounded-md text-center"
-        v-for="element in list"
-        :key="element.name"
-      >
-        {{ element.name }}
-      </div>
-    </draggable>
+  <div class="container">
+    <div class="row">
+    <div class="col-6">
+    
+      <div class="btn-group list-group-item" role="group">
+            <button class="btn btn-secondary" @click="replace">List1の順番をもとに戻す</button>
+          </div>
+
+          <div class="btn-group list-group-item" role="group">
+            <button class="btn btn-secondary" @click="reset">List2を削除</button>
+          </div>
+
+      <h3 align="center">List1</h3>
+       
+      <draggable class="list-group" :list="list1" :group="{name: 'people',  pull: 'clone',put: false}" @change="log">
+
+        <div
+          class="list-group-item"
+          v-for="(element) in list1"
+          :key="element.name"
+        >
+          {{ element.name }} 
+        </div>
+      </draggable>
+    </div>
+
+    <div class="col-6">
+      <h3 alig="center">List2</h3>
+      <draggable class="list-group" :list="list2" group="people" @change="log">
+        <div
+          class="list-group-item"
+          v-for="(element) in list2"
+          :key="element.name"
+        >
+          {{ element.name }} 
+        </div>
+      </draggable>
+    </div>
+  </div>
   </div>
 </template>
+
+
+
 <script>
   import { defineComponent } from 'vue'
   import { VueDraggableNext } from 'vue-draggable-next'
+  let id = 1;
   export default defineComponent({
+    name: "GUCCI",
+    display: "GUCCI",
+    order: 2,
     components: {
-      draggable: VueDraggableNext,
+      draggable: VueDraggableNext
     },
     data() {
       return {
         enabled: true,
-        list: [
-          { name: 'John', id: 1 },
-          { name: 'Joao', id: 2 },
-          { name: 'Jean', id: 3 },
-          { name: 'Gerard', id: 4 },
-        ],
+        list1: [
+        { name: "A", id: 1 },
+        { name: "B", id: 2 },
+        { name: "C", id: 3 },
+        { name: "D", id: 4 },
+        { name: "E", id: 5 },
+        { name: "F", id: 6 }
+      ],
+      list2: [
+        //空
+      ],
         dragging: false,
-      }
+      };
     },
     methods: {
-      log(event) {
-        console.log(event)
-      },
+      replace: function() {
+      this.list1 = [{ name: "A", id: 1 },
+        { name: "B", id: 2 },
+        { name: "C", id: 3 },
+        { name: "D", id: 4 },
+        { name: "E", id: 5 },
+        { name: "F", id: 6 }];
     },
-  })
+    reset: function(){
+      this.list2 = []
+    },
+      log: function(evt) {
+      window.console.log(evt);
+    }
+    }
+  });
 </script>
