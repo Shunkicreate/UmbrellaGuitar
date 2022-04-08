@@ -2,7 +2,7 @@
 	<!-- <div id="app"> -->
 	<div class="hiroki">
 		<div>It's me. This is Hiroki.</div>
-		<button @click="draw()">スタート</button>
+		<button @click="draw">スタート</button>
 		<canvas id="can1" width="600" height="50"></canvas>
 	</div>
 	<!-- </div> -->
@@ -18,44 +18,49 @@ export default defineComponent({
 	setup() {
 		let canvas: any;
 		let ctx: any;
-
-		// document.addEventListener('DOMContentLoaded',(Event)=>{
-		// 	canvas = <HTMLCanvasElement>document.getElementById("can1");
-		// 	// console.log(canvas);
-		// 	ctx = canvas.getContext('2d');
-		// 	console.log(ctx.fillStyle);
-		// 	ctx.fillStyle="red";
-		// 	console.log(ctx.fillStyle);
-
-		var xstart = 600;
-		var y = 15;
-		var speed = 3;
-
-
+				var xstart = 600;
+			var y = 15;
+			var speed = 3;
 
 		function draw() {
-			requestAnimationFrame(draw);
 
-			ctx.clearRect(0, 0, canvas.width, canvas.height);
+		// document.addEventListener('DOMContentLoaded',(Event)=>{
+			canvas = <HTMLCanvasElement>document.getElementById("can1");
+			console.log(canvas);
+			ctx = canvas.getContext('2d');
+			console.log(ctx.fillStyle);
+			ctx.fillStyle="red";
+			console.log(ctx.fillStyle);
 
-			ctx.strokeRect(25, y, 20, 20)
+	
+			
+				// requestAnimationFrame(draw);
 
-			var cnt = 0;
-			var x = xstart + 100 * cnt;
+				ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-			for (var i = 0; i < 2; i++) {
-				for (var j = 0; j < 4; j++) {
-					ctx.fillRect(x, y, 20, 20);
-					cnt++;
-					x = xstart + 100 * cnt;
+				ctx.strokeRect(25, y, 20, 20)
+
+				var cnt = 0;
+				var x = xstart + 100 * cnt;
+
+				for (var i = 0; i < 2; i++) {
+					for (var j = 0; j < 4; j++) {
+						ctx.fillRect(x, y, 20, 20);
+						cnt++;
+						x = xstart + 100 * cnt;
+					}
+				}
+
+				xstart -= speed;
+
+				if(xstart > -1000){
+					requestAnimationFrame(draw);	
 				}
 			}
-
-			xstart -= speed;
-		}
-		return{
-			draw
-		}
+			return{
+				draw
+			}
+		// })
 	}
 });
 
