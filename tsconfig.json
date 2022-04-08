@@ -12,7 +12,8 @@
     "lib": ["esnext", "dom"],
     "allowJs": true,
     "emitDeclarationOnly": true,
-    "downlevelIteration": true
+    "downlevelIteration": true,
+    "declaration": true
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
   "references": [{ "path": "./tsconfig.node.json" }]
