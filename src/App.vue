@@ -33,4 +33,22 @@ export default defineComponent({
   color: #2c3e50;
   margin-top: 60px;
 }
+
+#app .logo {
+  text-align: center;
+  background: #fff;
+}
+#app .logo img{
+  height: 100px;
+}
+#app .main-container {
+  padding-top: 40px;
+}
+
+.container{
+  margin: 0 auto;
+  width: 100%;
+  max-width: 980px;
+  background: #eee;
+}
 </style>

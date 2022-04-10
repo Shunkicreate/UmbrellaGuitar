@@ -63,33 +63,36 @@
     data() {
       return {
         enabled: true,
-        list1: [
+        list1: [[
         { name: "A", id: 1 },
         { name: "B", id: 2 },
         { name: "C", id: 3 },
         { name: "D", id: 4 },
         { name: "E", id: 5 },
         { name: "F", id: 6 }
-      ],
-      list2: [
-        //空
-      ],
+      ],[
+        { name: "G", id: 1 },
+        { name: "H", id: 2 },
+        { name: "I", id: 3 },
+        { name: "J", id: 4 },
+        { name: "K", id: 5 },
+        { name: "L", id: 6 }]],
         dragging: false,
       };
     },
     methods: {
-      replace: function() {
-      this.list1 = [
-        { name: "A", id: 1 },
-        { name: "B", id: 2 },
-        { name: "C", id: 3 },
-        { name: "D", id: 4 },
-        { name: "E", id: 5 },
-        { name: "F", id: 6 }];
-    },
-    reset: function(){
-      this.list2 = []
-    },
+    //   replace: function() {
+    //   this.list1 = [
+    //     { name: "G", id: 1 },
+    //     { name: "H", id: 2 },
+    //     { name: "I", id: 3 },
+    //     { name: "J", id: 4 },
+    //     { name: "K", id: 5 },
+    //     { name: "L", id: 6 }];
+    // },
+    // reset: function(){
+    //   this.list2 = []
+    // },
       log: function(evt) {
       window.console.log(evt);
     }
