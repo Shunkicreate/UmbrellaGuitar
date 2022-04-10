@@ -4,20 +4,20 @@
       <div class="col-6">
         <h3 align="center">V.vue</h3>
 
-      //親要素にdisplay: flexのスタイルを適用すると、親要素はflex containerとなり、子要素はflex itemとなります。
-      
+      <div>親要素にdisplay: flexのスタイルを適用すると、親要素はflex containerとなり、子要素はflex itemとなります。</div>
+      <div>div要素はブロック要素ですので、本来は１つのdivごとに改行されますが、flex itemとなっているので、横並びで表示されています。</div>
 
-        <div style="display: flex; justify-content: space-around;">
-    <div style="width: 200px;">
-        <h3>ブロック１</h3>
-    </div>
-    <div style="width: 100px; height: 50px; background-color: yellow;">
-        <h3>ブロック2</h3>
-    </div>
-    <div style="width: 100px; height: 80px; background-color: red;">
-        <h3>ブロック3</h3>
-    </div>
-</div>
+        <div style="display: flex; justify-content: center;">
+          <div style="width: 200px; height: 100px; background-color: blue;">
+            <h3>ブロック１</h3>
+          </div>
+          <div style="width: 200px; height: 100px;">
+            <h3></h3>
+          </div>
+          <div style="width: 200px; height: 100px; background-color: red;">
+            <h3>ブロック3</h3>
+          </div>
+        </div>
     
         <!-- <div class="btn-group list-group-item" role="group">
           <button class="btn btn-secondary" @click="replace">List1の順番をもとに戻す</button>

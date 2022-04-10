@@ -19,7 +19,7 @@ export default defineComponent({
 </script>
 
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />aaaaaaa
+  <img alt="Vue logo" src="./assets/logo.png" />
   <Hiroki></Hiroki>
   <GUCCI></GUCCI>
   <V></V>
