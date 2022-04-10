@@ -6,12 +6,14 @@ import Hiroki from './components/Hiroki.vue'
 import GUCCI from './components/GUCCI.vue'
 import Yukina from './components/Yukina.vue'
 import { defineComponent } from 'vue';
+import V from './components/V.vue'
+
 export default defineComponent({
   components: {
     Hiroki,
     GUCCI,
-    Yukina
-
+    Yukina,
+    V
   }
 })
 </script>
@@ -20,6 +22,7 @@ export default defineComponent({
   <img alt="Vue logo" src="./assets/logo.png" />aaaaaaa
   <Hiroki></Hiroki>
   <GUCCI></GUCCI>
+  <V></V>
   <Yukina></Yukina>
   <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
 </template>

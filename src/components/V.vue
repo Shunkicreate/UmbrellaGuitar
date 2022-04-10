@@ -2,9 +2,24 @@
   <div class="container">
     <div class="row">
       <div class="col-6">
-        <h3 align="center">Vue-Draggable-Next</h3>
+        <h3 align="center">V.vue</h3>
+
+      //親要素にdisplay: flexのスタイルを適用すると、親要素はflex containerとなり、子要素はflex itemとなります。
+      
+
+        <div style="display: flex; justify-content: space-around;">
+    <div style="width: 200px;">
+        <h3>ブロック１</h3>
+    </div>
+    <div style="width: 100px; height: 50px; background-color: yellow;">
+        <h3>ブロック2</h3>
+    </div>
+    <div style="width: 100px; height: 80px; background-color: red;">
+        <h3>ブロック3</h3>
+    </div>
+</div>
     
-        <div class="btn-group list-group-item" role="group">
+        <!-- <div class="btn-group list-group-item" role="group">
           <button class="btn btn-secondary" @click="replace">List1の順番をもとに戻す</button>
         </div>
 
@@ -24,9 +39,9 @@
           {{ element.name }} 
         </div>
       </draggable>
-    </div>
+    </div> -->
 
-    <div class="col-6">
+    <!-- <div class="col-6">
       <h3 align="center">List2</h3>
       <draggable class="list-group" :list="list2" group="people" @change="log">
         <div
@@ -36,15 +51,15 @@
         >
           {{ element.name }} 
         </div>
-      </draggable>
+      </draggable> -->
     </div>
   </div>
   </div>
 
-
+<!-- 
     <rawDisplayer class="col-6" :value="list1" title="List 1"/>
 
-    <rawDisplayer class="col-6" :value="list2" title="List 2"/>
+    <rawDisplayer class="col-6" :value="list2" title="List 2"/> -->
 </template>
 
 
