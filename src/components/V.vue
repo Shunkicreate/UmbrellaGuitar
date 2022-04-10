@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="row">
-      <div class="col-6">
+      <!-- <div class="col-6"> -->
         <h3 align="center">V.vue</h3>
 
       <div>親要素にdisplay: flexのスタイルを適用すると、親要素はflex containerとなり、子要素はflex itemとなります。</div>
@@ -11,7 +11,7 @@
         <div style="display: flex; justify-content: center;">
           <div style="width: 300px; height: 400px; background-color: gray;">
             <h3>ブロック１</h3>
-
+            <div class="col-6"> aaa </div>
             
 
           </div>
@@ -20,7 +20,7 @@
           </div>
 
           <div style="width: 300px; height: 400px; background-color: gray;">
-            <h3>ブロック3</h3>
+            <h3>ブロック2</h3>
           </div>
         </div>
     
@@ -48,7 +48,7 @@
           {{ element.name }} 
         </div>
       </draggable>
-    </div>
+    <!-- </div> -->
   </div>
   </div>
 
