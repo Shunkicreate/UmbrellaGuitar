@@ -6,28 +6,24 @@
 
       <div>親要素にdisplay: flexのスタイルを適用すると、親要素はflex containerとなり、子要素はflex itemとなります。</div>
       <div>div要素はブロック要素ですので、本来は１つのdivごとに改行されますが、flex itemとなっているので、横並びで表示されています。</div>
+      
 
         <div style="display: flex; justify-content: center;">
-          <div style="width: 200px; height: 100px; background-color: blue;">
+          <div style="width: 300px; height: 400px; background-color: gray;">
             <h3>ブロック１</h3>
+
+            
+
           </div>
-          <div style="width: 200px; height: 100px;">
+          <div style="width: 300px; height: 400px;">
             <h3></h3>
           </div>
-          <div style="width: 200px; height: 100px; background-color: red;">
+
+          <div style="width: 300px; height: 400px; background-color: gray;">
             <h3>ブロック3</h3>
           </div>
         </div>
     
-        <!-- <div class="btn-group list-group-item" role="group">
-          <button class="btn btn-secondary" @click="replace">List1の順番をもとに戻す</button>
-        </div>
-
-        <div class="btn-group list-group-item" role="group">
-            <button class="btn btn-secondary" @click="reset">List2を削除</button>
-        </div>
-
-        <h3 align="center">List1</h3>
        
         <draggable class="-listgroup" :list="list1" :group="{name: 'people',  pull: 'clone',put: false}" @change="log">
 
@@ -39,10 +35,10 @@
           {{ element.name }} 
         </div>
       </draggable>
-    </div> -->
+    </div>
 
-    <!-- <div class="col-6">
-      <h3 align="center">List2</h3>
+    <div class="col-6">
+      
       <draggable class="list-group" :list="list2" group="people" @change="log">
         <div
           class="list-group-item"
@@ -51,15 +47,15 @@
         >
           {{ element.name }} 
         </div>
-      </draggable> -->
+      </draggable>
     </div>
   </div>
   </div>
 
-<!-- 
+
     <rawDisplayer class="col-6" :value="list1" title="List 1"/>
 
-    <rawDisplayer class="col-6" :value="list2" title="List 2"/> -->
+    <rawDisplayer class="col-6" :value="list2" title="List 2"/> 
 </template>
 
 
@@ -96,18 +92,6 @@
       };
     },
     methods: {
-    //   replace: function() {
-    //   this.list1 = [
-    //     { name: "G", id: 1 },
-    //     { name: "H", id: 2 },
-    //     { name: "I", id: 3 },
-    //     { name: "J", id: 4 },
-    //     { name: "K", id: 5 },
-    //     { name: "L", id: 6 }];
-    // },
-    // reset: function(){
-    //   this.list2 = []
-    // },
       log: function(evt) {
       window.console.log(evt);
     }
