@@ -23,9 +23,21 @@
             <h3>ブロック2</h3>
           </div>
         </div>
+
+        <div class="container-fluid">
+  <div class="row">
+    <div class="col">A</div>
+    <div class="col">B</div>
+    <div class="col">C</div>
+    <div class="w-100"></div>
+    <div class="col">D</div>
+    <div class="col">E</div>
+  </div>
+</div>
+
     
        
-        <draggable class="-listgroup" :list="list1" :group="{name: 'people',  pull: 'clone',put: false}" @change="log">
+        <!-- <draggable class="-listgroup" :list="list1" :group="{name: 'people',  pull: 'clone',put: false}" @change="log">
 
         <div
           class="list-group-item"
@@ -48,14 +60,10 @@
           {{ element.name }} 
         </div>
       </draggable>
-    <!-- </div> -->
+    </div>  -->
   </div>
-  </div>
+</div>
 
-
-    <rawDisplayer class="col-6" :value="list1" title="List 1"/>
-
-    <rawDisplayer class="col-6" :value="list2" title="List 2"/> 
 </template>
 
 
@@ -74,24 +82,33 @@
     data() {
       return {
         enabled: true,
-        list1: [[
+        list1: [
         { name: "A", id: 1 },
         { name: "B", id: 2 },
         { name: "C", id: 3 },
         { name: "D", id: 4 },
         { name: "E", id: 5 },
         { name: "F", id: 6 }
-      ],[
-        { name: "G", id: 1 },
-        { name: "H", id: 2 },
-        { name: "I", id: 3 },
-        { name: "J", id: 4 },
-        { name: "K", id: 5 },
-        { name: "L", id: 6 }]],
+      ],
+      list2: [
+        //
+      ],
         dragging: false,
       };
     },
     methods: {
+    //   replace: function() {
+    //   this.list1 = [
+    //     { name: "A", id: 1 },
+    //     { name: "B", id: 2 },
+    //     { name: "C", id: 3 },
+    //     { name: "D", id: 4 },
+    //     { name: "E", id: 5 },
+    //     { name: "F", id: 6 }];
+    // },
+    // reset: function(){
+    //   this.list2 = []
+    // },
       log: function(evt) {
       window.console.log(evt);
     }
