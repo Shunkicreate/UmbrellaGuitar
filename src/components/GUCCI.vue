@@ -1,20 +1,10 @@
 <template>
   <div>
+    <!-- :disabled="isDrag" でDnDは禁止できる -->
     <button @click="replace">初期化</button>
     <button @click="reset">リセット</button>
-    
-    <div class="form-check">
-          <input
-            id="disabled"
-            type="checkbox"
-            v-model="enabled"
-            class="form-check-input"
-          />
-          <label class="form-check-label" for="disabled">DnD enabled</label>
-        </div>
 
     <div style="display: flex; justify-content: center">
-
       <div style="margin: 0 100px">
         <div>
           <h3 align="center">List1</h3>
@@ -24,9 +14,10 @@
           <draggable
             class="-listgroup"
             :list="list1"
-            :disabled="!enabled"
             :group="{ name: 'people', pull: 'clone', put: false }"
             @change="log"
+            :options="{ animation: 200 }"
+            @dragenter="dragenter(fruit)"
           >
             <div
               class="list-group-item"
@@ -38,7 +29,6 @@
           </draggable>
         </div>
       </div>
-
       <div>
         <div>
           <h3 align="center">List2</h3>
@@ -89,8 +79,14 @@ export default defineComponent({
         { name: " E ", id: 5 },
         { name: " F ", id: 6 },
       ],
+
       list2: [
-        //空
+        { name: " G ", id: 1 },
+        { name: " H ", id: 2 },
+        { name: " I ", id: 3 },
+        { name: " J ", id: 4 },
+        { name: " K ", id: 5 },
+        { name: " L ", id: 6 },
       ],
       dragging: false,
     };
@@ -106,8 +102,14 @@ export default defineComponent({
         { name: " F ", id: 6 },
       ];
     },
+    onclone: (e) => {
+      console.log("onclone");
+    },
     reset: function () {
       this.list2 = [];
+    },
+    dragenter(item) {
+      this.replace;
     },
     log: function (evt) {
       window.console.log(evt);
