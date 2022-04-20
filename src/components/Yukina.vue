@@ -5,15 +5,13 @@
             <button class="minus bt" type="button" @click="Minus()">－</button>
             <button class="plus bt" type="button" @click="computed()">＋</button>
         </div>
-
         <div>
             <h5 class="strk">ストローク</h5>
-            <button class="stroke mode" type="button" @click="Change()">{{ change }}</button>
+            <button class="stroke mode" type="button" @click="Change_stroke_level()">{{ stroke_level }}</button>
         </div>
-
         <div>
             <h5 class="code">コード</h5>
-            <button class="stroke mode" type="button" @click="Change()">{{ change }}</button>
+            <button class="stroke mode" type="button" @click="Change_code_level()">{{ code_level }}</button>
         </div>
     </div>
 </template>
@@ -21,12 +19,9 @@
 import { defineComponent, ref } from 'vue';
 export default defineComponent({
     name: "Yukina",
-
     setup() {
         const count = ref(175)
         const plusOne = computed
-        const minusOne = Minus
-
         function computed() {
             count.value = count.value + 1
         }
@@ -35,35 +30,40 @@ export default defineComponent({
             count.value = count.value - 1
         }
 
-        var array = ['やさしい', 'ふつう', 'むずかしい']
+        var array = ref(['やさしい', 'ふつう', 'むずかしい'])
         let i = 0
 
-        const change = array[i]
-        const modechange = Change
+        let stroke_level = ref(array.value[i])
+        let code_level = ref(array.value[i])
 
-        function Change() {
+        function Change_stroke_level() {
             if (i < 2){
                 i = i + 1
             }else{
                 i = 0
-            }        
+            }
+            stroke_level.value = array.value[i]
         }
 
-        
-        console.log(change);
-
-        
+        function Change_code_level() {
+            if (i < 2){
+                i = i + 1
+            }else{
+                i = 0
+            }
+            code_level.value = array.value[i]
+        }
 
         return {
             count,
-            change,
-            Change,
+            Change_stroke_level,
+            Change_code_level,
+            stroke_level,
+            code_level,
             plusOne,
             computed,
             Minus
         }
-
-        // plusOne.value++ // error
     }
 });
 
