@@ -4,7 +4,10 @@
 		<div>It's me. This is Hiroki.</div>
 		<button @click="draw">スタート</button>
 		<canvas id="can1" width="600" height="50"></canvas>
-		<span>test{{ y }}</span>
+		<!-- <span>test{{ y }}</span> -->
+		<span v-if="true">count is {{number}}</span>
+		<button @click="add_number">+</button>
+		<button @click="sub_number">-</button>
 	</div>
 	<!-- </div> -->
 </template>
@@ -23,6 +26,9 @@ export default defineComponent({
 		var xstart = 600;
 		var y = 15;
 		var speed = 3;
+		let change_count:boolean = true;
+
+		let number = 0;
 
 		function draw() {
 
@@ -60,9 +66,20 @@ export default defineComponent({
 				requestAnimationFrame(draw);
 			}
 		}
+		function add_number(){
+			number += 1;
+			console.log(number);
+		}
+		function sub_number(){
+			number -= 1;
+			console.log(number);
+		}
 		return {
 			draw,
-			y
+			y,
+			number,
+			add_number,
+			sub_number,
 		}
 		// })
 	}
