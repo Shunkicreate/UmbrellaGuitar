@@ -3,9 +3,10 @@
 	<div class="hiroki">
 		<div>It's me. This is Hiroki.</div>
 		<button @click="draw">スタート</button>
+		<button @click="stop_draw">リセット</button>
 		<canvas id="can1" width="600" height="50"></canvas>
 		<!-- <span>test{{ y }}</span> -->
-		<span v-if="true">count is {{number}}</span>
+		<span v-if="true">count is {{num}}</span>
 		<button @click="add_number">+</button>
 		<button @click="sub_number">-</button>
 	</div>
@@ -13,7 +14,7 @@
 </template>
 
 <script lang="ts">
-import { createApp, defineComponent, onMounted, VueElement, withCtx } from 'vue';
+import { createApp, defineComponent, onMounted, VueElement, withCtx, ref } from 'vue';
 // import AppVue from '../App.vue';
 
 
@@ -28,7 +29,24 @@ export default defineComponent({
 		var speed = 3;
 		let change_count:boolean = true;
 
-		let number = 0;
+		const num:number = ref(0);
+
+		function set_canvas(){
+			// document.addEventListener('DOMContentLoaded',(Event)=>{
+				console.log("this is set_canvas");
+				canvas = document.getElementById("can1");
+				console.log(canvas);
+				ctx = canvas.getContext('2d');
+				console.log(ctx.fillStyle);
+				ctx.fillStyle = "red";
+				console.log(ctx.fillStyle);
+				ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+				ctx.strokeRect(25, y, 20, 20)
+				
+		}
+		
+		// set_canvas()
 
 		function draw() {
 
@@ -64,28 +82,38 @@ export default defineComponent({
 
 			if (xstart > -1000) {
 				requestAnimationFrame(draw);
+			}else{
+				xstart = 600;
 			}
 		}
+
+		function stop_draw(){
+			xstart = -1500;
+		}
+
 		function add_number(){
-			number += 1;
-			console.log(number);
+			this.num += 1;
+			console.log(num);
 		}
 		function sub_number(){
-			number -= 1;
-			console.log(number);
+			this.num -= 1;
+			console.log(num);
 		}
 		return {
 			draw,
 			y,
-			number,
+			num,
+			set_canvas,
+			stop_draw,
 			add_number,
 			sub_number,
 		}
+		// draw();
 		// })
-	}
+	},
+		
+
 });
-
-
 </script>
 
 
