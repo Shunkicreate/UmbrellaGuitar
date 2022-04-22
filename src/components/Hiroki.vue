@@ -14,7 +14,7 @@
 </template>
 
 <script lang="ts">
-import { createApp, defineComponent, onMounted, VueElement, withCtx, ref } from 'vue';
+import { createApp, defineComponent, onMounted, VueElement, withCtx, ref, Ref } from 'vue';
 // import AppVue from '../App.vue';
 
 
@@ -29,7 +29,7 @@ export default defineComponent({
 		var speed = 3;
 		let change_count:boolean = true;
 
-		const num:number = ref(0);
+		const num:Ref<number> = ref(0);
 
 		function set_canvas(){
 			// document.addEventListener('DOMContentLoaded',(Event)=>{
@@ -92,11 +92,11 @@ export default defineComponent({
 		}
 
 		function add_number(){
-			this.num += 1;
+			num.value += 1;
 			console.log(num);
 		}
 		function sub_number(){
-			this.num -= 1;
+			num.value -= 1;
 			console.log(num);
 		}
 		return {
