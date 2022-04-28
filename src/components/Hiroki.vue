@@ -2,7 +2,7 @@
 	<!-- <div id="app"> -->
 	<div class="hiroki">
 		<div>It's me. This is Hiroki.</div>
-		<button @click="draw">スタート</button>
+		<button @click="draw" :disabled="btn_lock1">スタート</button>
 		<button @click="stop_draw">リセット</button>
 		<canvas id="can1" width="600" height="50"></canvas>
 		<!-- <span>test{{ y }}</span> -->
@@ -28,8 +28,10 @@ export default defineComponent({
 		var y = 15;
 		var speed = 3;
 		let change_count:boolean = true;
+		// let btn_lock1:boolean = false;
 
 		const num:Ref<number> = ref(0);
+		const btn_lock1:Ref<boolean> = ref(false);
 
 		function set_canvas(){
 			// document.addEventListener('DOMContentLoaded',(Event)=>{
@@ -52,6 +54,8 @@ export default defineComponent({
 
 			// document.addEventListener('DOMContentLoaded',(Event)=>{
 			// canvas = <HTMLCanvasElement>document.getElementById("can1");
+			btn_lock1.value=true;
+
 			canvas = document.getElementById("can1");
 			console.log(canvas);
 			ctx = canvas.getContext('2d');
@@ -82,8 +86,10 @@ export default defineComponent({
 
 			if (xstart > -1000) {
 				requestAnimationFrame(draw);
+				// btn_lock1.value=true;
 			}else{
 				xstart = 600;
+				btn_lock1.value=false;
 			}
 		}
 
@@ -103,6 +109,7 @@ export default defineComponent({
 			draw,
 			y,
 			num,
+			btn_lock1,
 			set_canvas,
 			stop_draw,
 			add_number,
