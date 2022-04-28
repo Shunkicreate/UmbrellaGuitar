@@ -3,7 +3,7 @@
 	<div class="hiroki">
 		<div>It's me. This is Hiroki.</div>
 		<button @click="draw" :disabled="btn_lock1">スタート</button>
-		<button @click="stop_draw">リセット</button>
+		<button @click="stop_draw" :disabled="btn_lock2">リセット</button>
 		<canvas id="can1" width="600" height="50"></canvas>
 		<!-- <span>test{{ y }}</span> -->
 		<span v-if="true">count is {{num}}</span>
@@ -32,6 +32,7 @@ export default defineComponent({
 
 		const num:Ref<number> = ref(0);
 		const btn_lock1:Ref<boolean> = ref(false);
+		const btn_lock2:Ref<boolean> = ref(true);
 
 		function set_canvas(){
 			// document.addEventListener('DOMContentLoaded',(Event)=>{
@@ -55,6 +56,8 @@ export default defineComponent({
 			// document.addEventListener('DOMContentLoaded',(Event)=>{
 			// canvas = <HTMLCanvasElement>document.getElementById("can1");
 			btn_lock1.value=true;
+			btn_lock2.value=false;
+			// btn_lock2.value=true;
 
 			canvas = document.getElementById("can1");
 			console.log(canvas);
@@ -90,11 +93,13 @@ export default defineComponent({
 			}else{
 				xstart = 600;
 				btn_lock1.value=false;
+				btn_lock2.value=true;
 			}
 		}
 
 		function stop_draw(){
 			xstart = -1500;
+			btn_lock2.value=true;
 		}
 
 		function add_number(){
@@ -110,6 +115,7 @@ export default defineComponent({
 			y,
 			num,
 			btn_lock1,
+			btn_lock2,
 			set_canvas,
 			stop_draw,
 			add_number,
