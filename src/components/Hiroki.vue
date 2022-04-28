@@ -3,12 +3,12 @@
 	<div class="hiroki">
 		<div>It's me. This is Hiroki.</div>
 		<button @click="draw" :disabled="btn_lock1">スタート</button>
-		<button @click="stop_draw" :disabled="btn_lock2">リセット</button>
+		<button @click="stop_draw" :disabled="btn_lock2">ストップ</button>
 		<canvas id="can1" width="600" height="50"></canvas>
 		<!-- <span>test{{ y }}</span> -->
-		<span v-if="true">count is {{num}}</span>
+		<span v-if="true">speed{{num}}</span>
 		<button @click="add_number">+</button>
-		<button @click="sub_number">-</button>
+		<button @click="sub_number" :disabled="btn_lock3">-</button>
 	</div>
 	<!-- </div> -->
 </template>
@@ -26,13 +26,14 @@ export default defineComponent({
 		let ctx: any;
 		var xstart = 600;
 		var y = 15;
-		var speed = 3;
+		const num:Ref<number> = ref(30);
+		let speed = num.value/10;
 		let change_count:boolean = true;
 		// let btn_lock1:boolean = false;
 
-		const num:Ref<number> = ref(0);
 		const btn_lock1:Ref<boolean> = ref(false);
 		const btn_lock2:Ref<boolean> = ref(true);
+		const btn_lock3:Ref<boolean> = ref(false);
 
 		function set_canvas(){
 			// document.addEventListener('DOMContentLoaded',(Event)=>{
@@ -77,7 +78,9 @@ export default defineComponent({
 			var cnt = 0;
 			var x = xstart + 100 * cnt;
 
-			for (var i = 0; i < 2; i++) {
+			speed = num.value/10;
+
+			for (var i = 0; i < 8; i++) {
 				for (var j = 0; j < 4; j++) {
 					ctx.fillRect(x, y, 20, 20);
 					cnt++;
@@ -87,28 +90,36 @@ export default defineComponent({
 
 			xstart -= speed;
 
-			if (xstart > -1000) {
+			if (xstart <= -1600) {
+				xstart = 0;
 				requestAnimationFrame(draw);
-				// btn_lock1.value=true;
+			}else if(xstart <= 600 && xstart > -1600){
+				requestAnimationFrame(draw);
 			}else{
-				xstart = 600;
-				btn_lock1.value=false;
+				// stop
+				btn_lock1.value = false;
 				btn_lock2.value=true;
+				xstart = 600;
 			}
 		}
 
 		function stop_draw(){
-			xstart = -1500;
-			btn_lock2.value=true;
+			xstart = 700;
 		}
 
 		function add_number(){
 			num.value += 1;
 			console.log(num);
+			if(num.value == 1){
+				btn_lock3.value=false;
+			}
 		}
 		function sub_number(){
 			num.value -= 1;
 			console.log(num);
+			if(num.value == 0){
+				btn_lock3.value=true;
+			}
 		}
 		return {
 			draw,
@@ -116,6 +127,7 @@ export default defineComponent({
 			num,
 			btn_lock1,
 			btn_lock2,
+			btn_lock3,
 			set_canvas,
 			stop_draw,
 			add_number,
