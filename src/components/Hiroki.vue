@@ -1,7 +1,7 @@
 <template>
 	<!-- <div id="app"> -->
 	<div class="hiroki">
-		<div>It's me. This is Hiroki.</div>
+		<!-- <div>It's me. This is Hiroki.</div> -->
 		<button @click="draw" :disabled="btn_lock1">スタート</button>
 		<button @click="stop_draw" :disabled="btn_lock2">ストップ</button>
 		<canvas id="can1" width="600" height="50"></canvas>

@@ -2,16 +2,20 @@
     <div class="set">
         <div class="counter">
             <div class ="kazu">{{ count }}</div>
-            <button class="minus bt" type="button" @click="Minus()">－</button>
-            <button class="plus bt" type="button" @click="computed()">＋</button>
+            <button class="minus bt" type="button" @click="Minus()"><img src="../assets/Subtract.svg"></button>
+            <button class="plus bt" type="button" @click="computed()"><img src="../assets/Group 5.svg"></button>
         </div>
-        <div>
-            <h5 class="strk">ストローク</h5>
-            <button class="stroke mode" type="button" @click="Change_stroke_level()">{{ stroke_level }}</button>
-        </div>
-        <div>
-            <h5 class="code">コード</h5>
-            <button class="stroke mode" type="button" @click="Change_code_level()">{{ code_level }}</button>
+
+        <div class="poti">
+            <div class="strk sum">
+                <p>stroke</p>
+                <button class="stroke mode" type="button" @click="Change_stroke_level()">{{ stroke_level }}</button>
+            </div>
+
+            <div class="code sum">
+                <p>code</p>
+                <button class="code mode" type="button" @click="Change_code_level()">{{ code_level }}</button>
+            </div>
         </div>
     </div>
 </template>
@@ -30,14 +34,14 @@ export default defineComponent({
             count.value = count.value - 1
         }
 
-        var array = ref(['やさしい', 'ふつう', 'むずかしい'])
+        var array = ref(['easy', 'difficult'])
         let i = 0
 
         let stroke_level = ref(array.value[i])
         let code_level = ref(array.value[i])
 
         function Change_stroke_level() {
-            if (i < 2){
+            if (i < 1){
                 i = i + 1
             }else{
                 i = 0
@@ -46,7 +50,7 @@ export default defineComponent({
         }
 
         function Change_code_level() {
-            if (i < 2){
+            if (i < 1){
                 i = i + 1
             }else{
                 i = 0
@@ -73,40 +77,54 @@ export default defineComponent({
 
 <style>
     .set {
-        border: 1px solid;
-        margin-top: 3%;
-        margin-left: 5%;
-        margin-right: 70%; 
+        background-color: #E9E9E8;
+        padding-top: 3%;
+        padding-bottom: 2%;
+        width: 30%;
     }
+
+    .counter {
+        box-shadow: -2px -2px 3px #a5aaabe5;
+        padding-top: 6%;
+        margin: 3% 10%; 
+    }
+
     .kazu {
-        border: 2px solid;
+        box-shadow: 2px 2px 3px #a5aaabe5;
         padding: 2% 3%;
-        margin: 5% 30%;
-        margin-top: 15%;
+        margin: 5% 20%;
+        margin-top: 1%;
+        font-family: 'Nunito Sans';
     }
 
     .bt {
         margin: 0% 5%;
-        border-radius: 100%; 
-        font-size: 100%;
         border: none;
-        background-color: rgb(237, 173, 110);
-        border-color: rgba(204, 172, 132, 0.727);
-        
+        background-color: #E9E9E8;
     }
-    .strk {
+
+    .poti {
+        box-shadow: -2px -2px 3px #a5aaabe5;
+        margin: 8% 10%; 
+    }
+
+    /* .strk {
         margin-top: 20%;
         margin-bottom: 5%;
     }
+
     .code {
         margin-top: 0%;
         margin-bottom: 5%;
+    } */
+
+    .mode {
+        background-color: #E9E9E8;
+        margin-bottom: 3%;
+    } 
+
+    .sum {
+        font-family: 'Nunito Sans';
     }
-    .stroke.mode {
-        margin-bottom: 15%;
-        background-color: rgb(237, 173, 110);
-        border-color: rgba(204, 172, 132, 0.727);
-        /* font-weight: 10; */
-        color: rgb(77, 75, 75)
-    }
+
 </style>
