@@ -2,6 +2,8 @@
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
 // import HelloWorld from './components/HelloWorld.vue'
+import { provide, reactive, ref } from 'vue'
+import MyMap from './components/MyMap.vue'
 import Hiroki from './components/Hiroki.vue'
 import GUCCI from './components/GUCCI.vue'
 import Yukina from './components/Yukina.vue'
@@ -10,16 +12,30 @@ import V from './components/V.vue'
 
 export default defineComponent({
   components: {
+    MyMap,
     Hiroki,
     GUCCI,
     Yukina,
     V
+  },
+  setup() {
+    const tempo = ref(120)
+    // provide('tempo', 120)
+    // provide('geolocation', {
+    //   longitude: 90,
+    //   latitude: 135
+    // })
+    provide('tempo',tempo)
+    return{
+      
+    }
   }
 })
 </script>
 
 <template>
   <div class="all">
+    <MyMap></MyMap>
     <div class="head">
       <div class="head_name">Umbrella Guitar</div>
       <div class="head_drag"><p>drag code and practice guitar</p></div>

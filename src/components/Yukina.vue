@@ -1,7 +1,7 @@
 <template>
     <div class="set">
         <div class="counter">
-            <div class ="kazu">{{ count }}</div>
+            <div class ="kazu">{{ tempo }}</div>
             <button class="minus bt" type="button" @click="Minus()"><img src="../assets/Subtract.svg"></button>
             <button class="plus bt" type="button" @click="computed()"><img src="../assets/Group 5.svg"></button>
         </div>
@@ -20,18 +20,20 @@
     </div>
 </template>
 <script lang="ts">
+import { inject } from 'vue'
 import { defineComponent, ref } from 'vue';
 export default defineComponent({
     name: "Yukina",
     setup() {
+        const tempo = inject('tempo', 120)
         const count = ref(175)
         const plusOne = computed
         function computed() {
-            count.value = count.value + 1
+            tempo.value = tempo.value + 1
         }
 
         function Minus() {
-            count.value = count.value - 1
+            tempo.value = tempo.value - 1
         }
 
         var array = ref(['easy', 'difficult'])
@@ -60,6 +62,7 @@ export default defineComponent({
 
         return {
             count,
+            tempo,
             Change_stroke_level,
             Change_code_level,
             stroke_level,
