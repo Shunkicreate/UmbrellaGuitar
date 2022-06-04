@@ -1,7 +1,7 @@
 <template>
 	<!-- <div id="app"> -->
-	<div class="hiroki">
-		<!-- <button @click="test">test</button>
+	<div>
+		<button @click="test">test</button>
 		<button @click="draw" :disabled="btn_lock1">スタート</button>
 		<button @click="stop_draw" :disabled="btn_lock2">ストップ</button> -->
 	</div>
