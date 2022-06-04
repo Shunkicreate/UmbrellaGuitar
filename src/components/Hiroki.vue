@@ -1,8 +1,10 @@
 <template>
 	<!-- <div id="app"> -->
-	<div class="hiroki">
+	<div>
 		<button @click="draw" :disabled="btn_lock1">スタート</button>
 		<button @click="stop_draw" :disabled="btn_lock2">ストップ</button>
+	</div>
+	<div class="hiroki">
 		<canvas id="can1" width="600" height="50"></canvas>
 		<!-- <span v-if="true">speed{{num}}</span>
 		<button @click="add_number">+</button>
@@ -129,11 +131,13 @@ export default defineComponent({
 
 
 <style>
-.hiroki {
-	border: solid 1px pink;
+#can1 {
+	width: 97%;
 }
 
+
 canvas {
-	border: solid 1px black;
+	box-shadow: 3px 3px 3px #a5aaabe5;
+	padding: 1%;
 }
 </style>

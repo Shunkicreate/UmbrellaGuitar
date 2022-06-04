@@ -1,5 +1,13 @@
 <template>
     <div class="set">
+        <div class="start">
+            <button class="bt" type="button"><img src="../assets/Polygon 1.svg"></button>
+        </div>
+
+        <div class="re start">
+            <button class="bt" type="button"><img src="../assets/Vector.svg"></button>
+        </div>
+
         <div class="counter">
             <div class ="kazu">{{ tempo }}</div>
             <button class="minus bt" type="button" @click="Minus()"><img src="../assets/Subtract.svg"></button>
@@ -15,6 +23,10 @@
             <div class="code sum">
                 <p>code</p>
                 <button class="code mode" type="button" @click="Change_code_level()">{{ code_level }}</button>
+            </div>
+
+            <div class="reset">
+                <button class="bt">code reset</button>
             </div>
         </div>
     </div>
@@ -84,16 +96,25 @@ export default defineComponent({
         padding-top: 3%;
         padding-bottom: 2%;
         width: 30%;
+        box-shadow: 3px 3px 3px #a5aaabe5;
+        margin: 1%;
+    }
+
+    .start {
+        background-color: #E9E9E8;
+        border: none;
+        box-shadow: 3px 3px 3px #a5aaabe5;
+        margin: 7% 10%; 
     }
 
     .counter {
-        box-shadow: -2px -2px 3px #a5aaabe5;
+        box-shadow: -3px -3px 3px #a5aaabe5;
         padding-top: 6%;
         margin: 3% 10%; 
     }
 
     .kazu {
-        box-shadow: 2px 2px 3px #a5aaabe5;
+        box-shadow: 3px 3px 3px #a5aaabe5;
         padding: 2% 3%;
         margin: 5% 20%;
         margin-top: 1%;
@@ -107,7 +128,7 @@ export default defineComponent({
     }
 
     .poti {
-        box-shadow: -2px -2px 3px #a5aaabe5;
+        box-shadow: -3px -3px 3px #a5aaabe5;
         margin: 8% 10%; 
     }
 
@@ -124,10 +145,19 @@ export default defineComponent({
     .mode {
         background-color: #E9E9E8;
         margin-bottom: 3%;
+        box-shadow: 3px 3px 3px #a5aaabe5;
+        border: none;
     } 
 
     .sum {
         font-family: 'Nunito Sans';
+    }
+
+    .reset {
+        background-color: #E9E9E8;
+        box-shadow: 3px 3px 3px #a5aaabe5;
+        margin: 8%;
+        border: none;
     }
 
 </style>

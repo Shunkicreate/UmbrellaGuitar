@@ -5,7 +5,7 @@
     <button @click="reset">リセット</button>
 
     <div style="display: flex; justify-content: center">
-      <div style="margin: 0 100px">
+      <div class="waku" style="margin: 0 100px">
         <div>
           <h3 align="center">List1</h3>
         </div>
@@ -29,7 +29,7 @@
           </draggable>
         </div>
       </div>
-      <div>
+      <div class="waku">
         <div>
           <h3 align="center">List2</h3>
         </div>
@@ -119,6 +119,9 @@ export default defineComponent({
 </script>
 
 <style>
-  
-
+  .waku {
+    box-shadow: 3px 3px 3px #a5aaabe5;
+    margin: 10%;
+    padding: 10%;
+  }
 </style>

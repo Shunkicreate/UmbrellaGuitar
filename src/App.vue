@@ -43,7 +43,7 @@ export default defineComponent({
     <div class="nikai">
       <Yukina class="yuki"></Yukina>
       <div class="dansi">
-        <Hiroki class="hirki"></Hiroki>
+        <Hiroki class="hiroki"></Hiroki>
         <GUCCI class="gucci"></GUCCI>
       </div>
     </div>
@@ -114,18 +114,20 @@ export default defineComponent({
 
 .hiroki {
   height: 20%;
-  width: 70%;
+ 
+  margin: 0%;
 }
 
 .gucchi {
   height: 80%;
-  width: 70%;
 }
 
 .nikai {
-
   display: flex;
-
+  width: 100%;
 }
 
+.dansi {
+  width: 80%;
+}
 </style>
