@@ -114,7 +114,6 @@ export default defineComponent({
 
 .hiroki {
   height: 20%;
- 
   margin: 0%;
 }
 
