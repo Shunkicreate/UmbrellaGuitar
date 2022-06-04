@@ -10,7 +10,7 @@
 
         <div class="counter">
             <div class ="kazu">{{ tempo }}</div>
-            <button class="minus bt" type="button" @click="Minus()"><img src="../assets/Subtract.svg"></button>
+            <button class="minus bt" type="button" @click="Minus()" :disabled="btn_lock1"><img src="../assets/Subtract.svg"></button>
             <button class="plus bt" type="button" @click="computed()"><img src="../assets/Group 5.svg"></button>
         </div>
 
@@ -38,14 +38,21 @@ export default defineComponent({
     name: "Yukina",
     setup() {
         const tempo = inject('tempo', 120)
+        const btn_lock1 = ref(false)
         const count = ref(175)
         const plusOne = computed
         function computed() {
             tempo.value = tempo.value + 1
+            if(tempo.value == 1){
+                btn_lock1.value = false
+            }
         }
 
         function Minus() {
             tempo.value = tempo.value - 1
+            if(tempo.value == 0){
+                btn_lock1.value = true
+            }
         }
 
         var array = ref(['easy', 'difficult'])
@@ -75,6 +82,7 @@ export default defineComponent({
         return {
             count,
             tempo,
+            btn_lock1,
             Change_stroke_level,
             Change_code_level,
             stroke_level,
