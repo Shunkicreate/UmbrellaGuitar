@@ -1,9 +1,9 @@
 <template>
 	<!-- <div id="app"> -->
 	<div class="hiroki">
-		<button @click="test">test</button>
+		<!-- <button @click="test">test</button>
 		<button @click="draw" :disabled="btn_lock1">スタート</button>
-		<button @click="stop_draw" :disabled="btn_lock2">ストップ</button>
+		<button @click="stop_draw" :disabled="btn_lock2">ストップ</button> -->
 	</div>
 	<div class="hiroki">
 		<canvas id="can1" width="600" height="50"></canvas>
@@ -25,7 +25,10 @@ export default defineComponent({
 		onMounted(() => {
 		draw_set()
 		});
-		const tempo = inject('tempo', 120)
+		const tempo = inject('tempo', 120);
+		const draw_start = inject('draw_start',false);
+		const draw_stop = inject('draw_stop',false);
+		const draw_reset = inject('draw_reset',false);
 		let canvas: any;
 		let ctx: any;
 		var xstart = 600;
@@ -38,7 +41,7 @@ export default defineComponent({
 		const btn_lock1:Ref<boolean> = ref(false);
 		const btn_lock2:Ref<boolean> = ref(true);
 		const btn_lock3:Ref<boolean> = ref(false);
-		const dwaw_start:Ref<boolean> = ref(false);
+		// const dwaw_start:Ref<boolean> = ref(false);
 
 		function set_canvas(){
 				console.log("this is set_canvas");
@@ -68,7 +71,13 @@ export default defineComponent({
 			ctx.clearRect(0, 0, canvas.width, canvas.height);
 
 			ctx.strokeRect(25, y, 20, 20)
-			if (dwaw_start.value == true){
+
+			if(draw_reset.value == true){
+				xstart = 600;
+				draw_reset.value = false;
+			}
+
+			if (draw_start.value == true){
 				var cnt = 0;
 				var x = xstart + 100 * cnt;
 
@@ -82,13 +91,15 @@ export default defineComponent({
 					}
 				}
 
+				if(draw_stop.value == false){
 				xstart -= speed;
+				}
 
 				if (xstart <= -1600) {
 					xstart = 0;
-					requestAnimationFrame(draw);
+					// requestAnimationFrame(draw_set);
 				}else if(xstart <= 600 && xstart > -1600){
-					requestAnimationFrame(draw);
+					// requestAnimationFrame(draw_set);
 				}else{
 					// stop
 					btn_lock1.value = false;
@@ -96,6 +107,7 @@ export default defineComponent({
 					xstart = 600;
 				}
 			}
+			requestAnimationFrame(draw_set);
 		}
 		
 
@@ -128,6 +140,7 @@ export default defineComponent({
 				}
 			}
 
+			// ストップのときは実行しない
 			xstart -= speed;
 
 			if (xstart <= -1600) {
@@ -177,7 +190,9 @@ export default defineComponent({
 			btn_lock1,
 			btn_lock2,
 			btn_lock3,
-			dwaw_start,
+			draw_start,
+			draw_stop,
+			draw_reset,
 			test_cont,
 			set_canvas,
 			stop_draw,

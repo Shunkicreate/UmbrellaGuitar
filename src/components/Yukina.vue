@@ -1,11 +1,11 @@
 <template>
     <div class="set">
         <div class="start">
-            <button class="bt" type="button"><img src="../assets/Polygon 1.svg"></button>
+            <button class="bt" type="button"><img src="../assets/Polygon 1.svg" @click="start_stop()"></button>
         </div>
 
         <div class="re start">
-            <button class="bt" type="button"><img src="../assets/Vector.svg"></button>
+            <button class="bt" type="button" @click="reset()"><img src="../assets/Vector.svg"></button>
         </div>
 
         <div class="counter">
@@ -38,6 +38,9 @@ export default defineComponent({
     name: "Yukina",
     setup() {
         const tempo = inject('tempo', 120)
+		const draw_start = inject('draw_start',false);
+		const draw_stop = inject('draw_stop',false);
+		const draw_reset = inject('draw_reset',false);
         const btn_lock1 = ref(false)
         const count = ref(175)
         const plusOne = computed
@@ -46,6 +49,27 @@ export default defineComponent({
             if(tempo.value == 1){
                 btn_lock1.value = false
             }
+        }
+
+        function start_stop(){
+            if(draw_start.value == false){
+                // start
+                draw_start.value = true;
+                draw_stop.value = false;
+            } else{
+                // stop
+                if(draw_stop.value == true){
+                    draw_stop.value = false;
+                } else {
+                    draw_stop.value = true;
+                }
+            }
+        }
+
+        function reset(){
+            draw_start.value = false;
+            draw_reset.value = true;
+            tempo.value = 30
         }
 
         function Minus() {
@@ -82,6 +106,9 @@ export default defineComponent({
         return {
             count,
             tempo,
+			draw_start,
+			draw_stop,
+			draw_reset,
             btn_lock1,
             Change_stroke_level,
             Change_code_level,
@@ -89,7 +116,9 @@ export default defineComponent({
             code_level,
             plusOne,
             computed,
-            Minus
+            Minus,
+            start_stop,
+            reset
         }
     }
 });

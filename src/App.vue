@@ -12,20 +12,26 @@ import V from './components/V.vue'
 
 export default defineComponent({
   components: {
-    MyMap,
+    // MyMap,
     Hiroki,
     GUCCI,
     Yukina,
     V
   },
   setup() {
-    const tempo = ref(120)
+    const tempo = ref(30);
+    const draw_start = ref(false);
+    const draw_stop = ref(false);
+    const draw_reset = ref(false);
     // provide('tempo', 120)
     // provide('geolocation', {
     //   longitude: 90,
     //   latitude: 135
     // })
     provide('tempo',tempo)
+    provide('draw_start',draw_start)
+    provide('draw_stop',draw_stop)
+    provide('draw_reset',draw_reset)
     return{
       
     }
